@@ -262,9 +262,16 @@ const ManualExamCreator = () => {
                 </Button>
               </label>
               {currentQuestion.image && (
-                <span className="ml-2 text-sm text-gray-600">
-                  {currentQuestion.image.name}
-                </span>
+                <div className="mt-2">
+                  <span className="text-sm text-gray-600 block mb-2">
+                    {currentQuestion.image.name}
+                  </span>
+                  <img 
+                    src={URL.createObjectURL(currentQuestion.image)} 
+                    alt="Question preview" 
+                    className="max-w-xs max-h-32 object-contain border rounded"
+                  />
+                </div>
               )}
             </div>
           </div>
@@ -413,11 +420,12 @@ const ManualExamCreator = () => {
                     </div>
                     
                     {question.image && (
-                      <div className="mb-2">
-                        <Badge variant="secondary" className="text-xs">
-                          <Image className="h-3 w-3 mr-1" />
-                          Has Image
-                        </Badge>
+                      <div className="mb-3">
+                        <img 
+                          src={URL.createObjectURL(question.image)} 
+                          alt="Question image" 
+                          className="max-w-full max-h-40 object-contain border rounded mb-2"
+                        />
                       </div>
                     )}
                     
